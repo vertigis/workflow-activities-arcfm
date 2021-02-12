@@ -14,14 +14,14 @@ To use the ArcFM activities in [Geocortex Workflow Designer](https://apps.geocor
 1. Sign in to ArcGIS Online or Portal for ArcGIS
 1. Go to **My Content**
 1. Select **Add Item > An application**
-   - Type: `Web Mapping`
-   - Purpose: `Ready To Use`
-   - API: `JavaScript`
-   - URL: The URL to this activity pack manifest
-     - Use https://unpkg.com/@geocortex/workflow-activities-arcfm/activitypack.json for the latest version
-     - Use https://unpkg.com/@geocortex/workflow-activities-arcfm@1.0.0/activitypack.json for a specific version
-   - Title: Your desired title
-   - Tags: Must include `geocortex-workflow-activity-pack`
+    - Type: `Web Mapping`
+    - Purpose: `Ready To Use`
+    - API: `JavaScript`
+    - URL: The URL to this activity pack manifest
+        - Use https://unpkg.com/@geocortex/workflow-activities-arcfm/activitypack.json for the latest version
+        - Use https://unpkg.com/@geocortex/workflow-activities-arcfm@0.1.0/activitypack.json for a specific version
+    - Title: Your desired title
+    - Tags: Must include `geocortex-workflow-activity-pack`
 1. Reload [Geocortex Workflow Designer](https://apps.geocortex.com/workflow/designer/)
 1. The ArcFM activities will now appear in the activity toolbox in a `ArcFM` category
 
