@@ -6,7 +6,7 @@ import { ChannelProvider } from "@geocortex/workflow/runtime/activities/core/Cha
 import { activate } from "@geocortex/workflow/runtime/Hooks";
 
 /** An interface that defines the inputs of the activity. */
-export interface RunArcFMElectricTraceInputs {
+export interface RunArcFMWaterTraceInputs {
     /**
      * @displayName Service URL
      * @description The URL to the ArcGIS REST service. For example, http://server/arcgis/rest/services/<serviceName>/MapServer. The service must support the ArcFMMapServer extension.
@@ -28,43 +28,45 @@ export interface RunArcFMElectricTraceInputs {
     };
 
     /**
-     * @description The type of trace to perform.
+     * @description The type of trace to perform. The default is ValveIsolation.
      */
     traceType?:
-        | "Downstream"
-        | "Upstream"
-        | "Distribution"
-        | "DownstreamProtective"
-        | "UpstreamProtective"
-        | "NextUpstreamProtective"
-        | "ProtectiveIsolation"
+        | "ValveIsolation"
+        | "CathodicProtection"
+        | "PressureSystem"
         | string;
 
     /**
-     * @description The layer IDs corresponding to the protective devices that participate in the trace.
+     * @description The devices that act as barriers to the Valve Isolation trace. The default is AllValves.
      */
-    protectiveDevices?: number | number[];
+    isolationTraceBarriers?: "AllValves" | "CriticalValves" | string;
 
     /**
-     * @description The phases to be included in the trace.
+     * @description One or more EID values indicating the valves that must be excluded from the trace. Used only by the Valve Isolation trace.
      */
-    phasesToTrace?:
-        | "Any"
-        | "A"
-        | "B"
-        | "C"
-        | "AB"
-        | "AC"
-        | "BC"
-        | "ABC"
-        | "AtLeastA"
-        | "AtLeastB"
-        | "AtLeastC"
-        | "AtLeastAB"
-        | "AtLeastAC"
-        | "AtLeastBC"
-        | "AnySinglePhase"
-        | "AnyTwoPhases"
+    excludedValves?: number | number[];
+
+    /**
+     * @description One or more EID values indicating the valves that may be included in the trace. Used only by the Valve Isolation trace.
+     */
+    includedValves?: number | number[];
+
+    /**
+     * @description One or more EID values indicating the valves that act as squeeze off points. Used only by the Valve Isolation trace.
+     */
+    squeezeOffs?: number | number[];
+
+    /**
+     * @description Whether to use pressures when isolating a specific area of the network. Used only by the Valve Isolation trace.
+     */
+    usePressures?: boolean;
+
+    /**
+     * @description The devices that act as barriers to the Pressure System trace. The default is AllValves.
+     */
+    pressureSystemTraceBarriers?:
+        | "WaterRegulators"
+        | "RegulatorsAndOtherDevices"
         | string;
 
     /**
@@ -104,15 +106,10 @@ export interface RunArcFMElectricTraceInputs {
         wkid?: number;
         wkt?: string;
     };
-
-    /**
-     * @description The progID of the current status object.
-     */
-    currentStatusProgID?: any;
 }
 
 /** An interface that defines the outputs of the activity. */
-export interface RunArcFMElectricTraceOutputs {
+export interface RunArcFMWaterTraceOutputs {
     /**
      * @description The result of the activity.
      */
@@ -121,33 +118,27 @@ export interface RunArcFMElectricTraceOutputs {
 
 /**
  * @category ArcFM
- * @displayName Run ArcFM Electric Trace
- * @description Runs an ArcFM electric trace operation.
- * @helpUrl https://resources.arcfmsolution.com/10.2.1d/ServerSDK/webframe.html#topic41789.html
+ * @displayName Run ArcFM Water Trace
+ * @description Runs an ArcFM water trace operation.
+ * @helpUrl https://resources.arcfmsolution.com/10.2.1d/ServerSDK/webframe.html#topic41792.html
  */
 @activate(ChannelProvider)
-export class RunArcFMElectricTrace implements IActivityHandler {
+export class RunArcFMWaterTrace implements IActivityHandler {
     async execute(
-        inputs: RunArcFMElectricTraceInputs,
+        inputs: RunArcFMWaterTraceInputs,
         context: IActivityContext,
         type: typeof ChannelProvider
-    ): Promise<RunArcFMElectricTraceOutputs> {
-        const {
-            phasesToTrace = "Any",
-            serviceUrl,
-            traceType = "Downstream",
-            ...other
-        } = inputs;
+    ): Promise<RunArcFMWaterTraceOutputs> {
+        const { serviceUrl, traceType = "ValveIsolation", ...other } = inputs;
         if (!serviceUrl) {
             throw new Error("serviceUrl");
         }
 
         const channel = type.create(undefined, "arcgis");
-        channel.request.url = `${inputs.serviceUrl}/exts/ArcFMMapServer/Electric%20Trace`;
+        channel.request.url = `${inputs.serviceUrl}/exts/ArcFMMapServer/Water%20Trace`;
         channel.request.method = "POST";
         channel.request.json = {
             f: "json",
-            phasesToTrace,
             traceType,
             ...other,
         };

@@ -45,22 +45,22 @@ export interface RunArcFMGasTraceInputs {
     /**
      * @description One or more EID values indicating the valves that must be excluded from the trace. Used only by the Valve Isolation trace.
      */
-    excludedValves?: string | string[];
+    excludedValves?: number | number[];
 
     /**
      * @description One or more EID values indicating the valves that may be included in the trace. Used only by the Valve Isolation trace.
      */
-    includedValves?: string | string[];
+    includedValves?: number | number[];
 
     /**
      * @description One or more EID values indicating the valves that act as squeeze off points. Used only by the Valve Isolation trace.
      */
-    squeezeOffs?: string | string[];
+    squeezeOffs?: number | number[];
 
     /**
      * @description One or more EID values indicating the devices that act as temporary sources. Used only by the Valve Isolation trace.
      */
-    temporarySources?: string | string[];
+    temporarySources?: number | number[];
 
     /**
      * @description One or more EID values indicating the devices that act as barriers to the Pressure System trace. Used only by the Pressure System trace.
@@ -126,6 +126,7 @@ export interface RunArcFMGasTraceOutputs {
  * @category ArcFM
  * @displayName Run ArcFM Gas Trace
  * @description Runs an ArcFM gas trace operation.
+ * @helpUrl https://resources.arcfmsolution.com/10.2.1d/ServerSDK/webframe.html#topic41790.html
  */
 @activate(ChannelProvider)
 export class RunArcFMGasTrace implements IActivityHandler {

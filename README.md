@@ -3,7 +3,7 @@
 [![CI/CD](https://github.com/geocortex/workflow-activities-arcfm/workflows/CI/CD/badge.svg)](https://github.com/geocortex/workflow-activities-arcfm/actions)
 [![npm](https://img.shields.io/npm/v/@geocortex/workflow-activities-arcfm)](https://www.npmjs.com/package/@geocortex/workflow-activities-arcfm)
 
-This project contains activities for interacting with ArcFM Server Object Extension (SOE) REST endpoints in a [Geocortex Workflow](https://www.geocortex.com/products/geocortex-workflow/).
+This project contains activities for interacting with the [ArcFM Server REST API](https://resources.arcfmsolution.com/10.2.1d/ServerSDK/webframe.html#topic41788.html) in a [Geocortex Workflow](https://www.geocortex.com/products/geocortex-workflow/).
 
 ## Usage
 
@@ -19,7 +19,7 @@ To use the ArcFM activities in [Geocortex Workflow Designer](https://apps.geocor
     - API: `JavaScript`
     - URL: The URL to this activity pack manifest
         - Use https://unpkg.com/@geocortex/workflow-activities-arcfm/activitypack.json for the latest version
-        - Use https://unpkg.com/@geocortex/workflow-activities-arcfm@0.1.0/activitypack.json for a specific version
+        - Use https://unpkg.com/@geocortex/workflow-activities-arcfm@1.0.0/activitypack.json for a specific version
     - Title: Your desired title
     - Tags: Must include `geocortex-workflow-activity-pack`
 1. Reload [Geocortex Workflow Designer](https://apps.geocortex.com/workflow/designer/)
