@@ -86,7 +86,7 @@ export interface RunArcFMGasTraceInputs {
     includeEdges?: boolean;
 
     /**
-     * @description Whether the user has identified junctions  to be included in the trace. The default is true.
+     * @description Whether the user has identified junctions to be included in the trace. The default is true.
      */
     includeJunctions?: boolean;
 
@@ -119,7 +119,32 @@ export interface RunArcFMGasTraceOutputs {
     /**
      * @description The result of the activity.
      */
-    results: any[];
+    results: {
+        displayFieldName: string;
+        fieldAliases: {
+            [key: string]: string;
+        };
+        fields: {
+            alias: string;
+            name: string;
+            type: string;
+            length?: number;
+        }[];
+        features: {
+            attributes: {
+                [key: string]: any;
+            };
+            name: string;
+            id: number;
+            exceededThreshold: boolean;
+            geometry?: any;
+        }[];
+        geometryType?: string;
+        spatialReference?: {
+            wkid?: number;
+            wkt?: string;
+        };
+    }[];
 }
 
 /**
