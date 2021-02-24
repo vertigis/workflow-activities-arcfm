@@ -185,7 +185,7 @@ export class RunArcFMGasTrace implements IActivityHandler {
         const responseData =
             channel.response.payload &&
             (channel.getResponseData(channel.response.payload) as any);
-        const results = responseData?.results || [];
+        const results = responseData?.results || responseData?.data?.results || [];
 
         return {
             results,
