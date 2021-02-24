@@ -180,7 +180,7 @@ export class RunArcFMGasTrace implements IActivityHandler {
             channel.cancel();
         });
 
-        const results = (channel.response.payload as any)?.data?.results || [];
+        const results = (channel.response.payload as any)?.results || [];
 
         return {
             results,
