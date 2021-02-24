@@ -174,7 +174,10 @@ export class RunArcFMWaterTrace implements IActivityHandler {
             channel.cancel();
         });
 
-        const results = (channel.response.payload as any)?.results || [];
+        const responseData =
+            channel.response.payload &&
+            (channel.getResponseData(channel.response.payload) as any);
+        const results = responseData?.results || [];
 
         return {
             results,
