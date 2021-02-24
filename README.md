@@ -19,7 +19,7 @@ To use the ArcFM activities in [Geocortex Workflow Designer](https://apps.geocor
     - API: `JavaScript`
     - URL: The URL to this activity pack manifest
         - Use https://unpkg.com/@geocortex/workflow-activities-arcfm/activitypack.json for the latest version
-        - Use https://unpkg.com/@geocortex/workflow-activities-arcfm@1.1.0/activitypack.json for a specific version
+        - Use https://unpkg.com/@geocortex/workflow-activities-arcfm@1.2.1/activitypack.json for a specific version
     - Title: Your desired title
     - Tags: Must include `geocortex-workflow-activity-pack`
 1. Reload [Geocortex Workflow Designer](https://apps.geocortex.com/workflow/designer/)

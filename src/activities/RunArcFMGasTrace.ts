@@ -134,9 +134,6 @@ export interface RunArcFMGasTraceOutputs {
             attributes: {
                 [key: string]: any;
             };
-            name: string;
-            id: number;
-            exceededThreshold: boolean;
             geometry?: any;
         }[];
         geometryType?: string;
@@ -144,6 +141,9 @@ export interface RunArcFMGasTraceOutputs {
             wkid?: number;
             wkt?: string;
         };
+        name: string;
+        id: number;
+        exceededThreshold: boolean;
     }[];
 }
 

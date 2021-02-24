@@ -128,9 +128,6 @@ export interface RunArcFMWaterTraceOutputs {
             attributes: {
                 [key: string]: string;
             };
-            name: string;
-            id: number;
-            exceededThreshold: boolean;
             geometry?: any;
         }[];
         geometryType?: string;
@@ -138,6 +135,9 @@ export interface RunArcFMWaterTraceOutputs {
             wkid?: number;
             wkt?: string;
         };
+        name: string;
+        id: number;
+        exceededThreshold: boolean;
     }[];
 }
 
