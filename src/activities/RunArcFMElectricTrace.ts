@@ -131,9 +131,6 @@ export interface RunArcFMElectricTraceOutputs {
             attributes: {
                 [key: string]: string;
             };
-            name: string;
-            id: number;
-            exceededThreshold: boolean;
             geometry?: any;
         }[];
         geometryType?: string;
@@ -141,6 +138,9 @@ export interface RunArcFMElectricTraceOutputs {
             wkid?: number;
             wkt?: string;
         };
+        name: string;
+        id: number;
+        exceededThreshold: boolean;
     }[];
 }
 
