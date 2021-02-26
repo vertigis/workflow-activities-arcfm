@@ -152,6 +152,8 @@ export interface RunArcFMGasTraceOutputs {
  * @displayName Run ArcFM Gas Trace
  * @description Runs an ArcFM gas trace operation.
  * @helpUrl https://resources.arcfmsolution.com/10.2.1d/ServerSDK/webframe.html#topic41790.html
+ * @clientOnly
+ * @unsupportedApps GMV
  */
 @activate(ChannelProvider)
 export class RunArcFMGasTrace implements IActivityHandler {

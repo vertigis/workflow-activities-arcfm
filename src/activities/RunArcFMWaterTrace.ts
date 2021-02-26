@@ -146,6 +146,8 @@ export interface RunArcFMWaterTraceOutputs {
  * @displayName Run ArcFM Water Trace
  * @description Runs an ArcFM water trace operation.
  * @helpUrl https://resources.arcfmsolution.com/10.2.1d/ServerSDK/webframe.html#topic41792.html
+ * @clientOnly
+ * @unsupportedApps GMV
  */
 @activate(ChannelProvider)
 export class RunArcFMWaterTrace implements IActivityHandler {
