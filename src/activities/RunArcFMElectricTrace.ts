@@ -149,6 +149,8 @@ export interface RunArcFMElectricTraceOutputs {
  * @displayName Run ArcFM Electric Trace
  * @description Runs an ArcFM electric trace operation.
  * @helpUrl https://resources.arcfmsolution.com/10.2.1d/ServerSDK/webframe.html#topic41789.html
+ * @clientOnly
+ * @unsupportedApps GMV
  */
 @activate(ChannelProvider)
 export class RunArcFMElectricTrace implements IActivityHandler {
