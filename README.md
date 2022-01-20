@@ -3,7 +3,7 @@
 [![CI/CD](https://github.com/geocortex/workflow-activities-arcfm/workflows/CI/CD/badge.svg)](https://github.com/geocortex/workflow-activities-arcfm/actions)
 [![npm](https://img.shields.io/npm/v/@geocortex/workflow-activities-arcfm)](https://www.npmjs.com/package/@geocortex/workflow-activities-arcfm)
 
-This project contains activities for interacting with the [ArcFM Server REST API](https://resources.arcfmsolution.com/10.2.1d/ServerSDK/webframe.html#topic41788.html) in a [VertiGIS Studio Workflow](https://www.vertigisstudio.com/products/geocortex-workflow/).
+This project contains activities for interacting with the [ArcFM Server REST API](https://resources.arcfmsolution.com/10.2.1d/ServerSDK/webframe.html#topic41788.html) in a [VertiGIS Studio Workflow](https://www.vertigisstudio.com/products/vertigis-studio-workflow/).
 
 ## Usage
 
