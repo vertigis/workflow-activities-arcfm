@@ -1,7 +1,7 @@
 {
   "name": "@geocortex/workflow-activities-arcfm",
   "version": "0.0.0-semantically-released",
-  "description": "ArcFM activities for Geocortex Workflow",
+  "description": "ArcFM activities for VertiGIS Studio Workflow",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/geocortex/workflow-activities-arcfm.git"
@@ -11,7 +11,7 @@
   "homepage": "https://github.com/geocortex/workflow-activities-arcfm#readme",
   "keywords": [
     "VertiGIS",
-    "Geocortex",
+    "VertiGIS Studio",
     "Workflow",
     "ArcFM",
     "ArcGIS",
