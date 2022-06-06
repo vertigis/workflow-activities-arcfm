@@ -164,11 +164,14 @@ export class RunArcFMGasTrace implements IActivityHandler {
     ): Promise<RunArcFMGasTraceOutputs> {
         const { serviceUrl, traceType = "ValveIsolation", ...other } = inputs;
         if (!serviceUrl) {
-            throw new Error("serviceUrl");
+            throw new Error("serviceUrl is required");
         }
 
+        // Remove trailing slashes
+        const normalizedUrl = serviceUrl.replace(/\/*$/, "");
+
         const channel = type.create(undefined, "arcgis");
-        channel.request.url = `${inputs.serviceUrl}/exts/ArcFMMapServer/Gas%20Trace`;
+        channel.request.url = `${normalizedUrl}/exts/ArcFMMapServer/Gas%20Trace`;
         channel.request.method = "POST";
         channel.request.json = {
             f: "json",
@@ -185,7 +188,8 @@ export class RunArcFMGasTrace implements IActivityHandler {
         const responseData =
             channel.response.payload &&
             (channel.getResponseData(channel.response.payload) as any);
-        const results = responseData?.results || responseData?.data?.results || [];
+        const results =
+            responseData?.results || responseData?.data?.results || [];
 
         return {
             results,
