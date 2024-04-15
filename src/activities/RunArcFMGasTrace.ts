@@ -1,12 +1,13 @@
 import type {
     IActivityContext,
     IActivityHandler,
-} from "@geocortex/workflow/runtime/IActivityHandler";
-import { ChannelProvider } from "@geocortex/workflow/runtime/activities/core/ChannelProvider";
-import { activate } from "@geocortex/workflow/runtime/Hooks";
+} from "@vertigis/workflow/IActivityHandler";
+import { ChannelProvider } from "@vertigis/workflow/activities/core/ChannelProvider";
+import { activate } from "@vertigis/workflow/Hooks";
 
-/** An interface that defines the inputs of the activity. */
 export interface RunArcFMGasTraceInputs {
+    /* eslint-disable @typescript-eslint/no-redundant-type-constituents */
+
     /**
      * @displayName Service URL
      * @description The URL to the ArcGIS REST service. For example, http://server/arcgis/rest/services/<serviceName>/MapServer. The service must support the ArcFMMapServer extension.
@@ -112,9 +113,10 @@ export interface RunArcFMGasTraceInputs {
         wkid?: number;
         wkt?: string;
     };
+    
+    /* eslint-enable @typescript-eslint/no-redundant-type-constituents */
 }
 
-/** An interface that defines the outputs of the activity. */
 export interface RunArcFMGasTraceOutputs {
     /**
      * @description The result of the activity.
@@ -181,7 +183,7 @@ export class RunArcFMGasTrace implements IActivityHandler {
 
         await channel.send();
 
-        context.cancellationToken.finally(function () {
+        void context.cancellationToken.finally(function () {
             channel.cancel();
         });
 
